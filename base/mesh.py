@@ -20,7 +20,7 @@ class Mesh:
 class Node:
 	def __init__ (self):
 		
-		self.values = [0.0,0.0,0.0]
+		self.values = (0.0,0.0,0.0)
 
 
 class Element:

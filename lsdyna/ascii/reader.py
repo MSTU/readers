@@ -1,7 +1,9 @@
 # -*- coding: cp1251 -*-
 #
-#	ls-dyna nodout file reader
+#	ls-dyna ascii  files reader
 #
+
+# nodout datatime record
 class node_time:
 	def __init__ (self):
 		self.entity = ''
@@ -29,7 +31,7 @@ class node_time:
 		self.z_rot_accl = []
 		
 		
-
+# ls dyna  reader
 class lsdyna_reader:
 	
 	def __init__ (self):
@@ -69,7 +71,7 @@ class lsdyna_reader:
 				"""
 				print
 		
-		
+	# nodout reader
 	def read_nodout (self, file_name):
 
 		self.nodout = dict()
@@ -80,6 +82,7 @@ class lsdyna_reader:
 		self.read_legend (file)
 		self.read_nodout_data(file)
 		
+	# nodout legend reader
 	def read_legend (self, file):
 		
 		line = file.readline()
@@ -109,13 +112,14 @@ class lsdyna_reader:
 			
 		line = file.readline()
 			
+	# nodout datatime reader
 	def read_nodout_data (self, file):
 		time_list = self.nodout['__time']
 		line = file.readline()
 		while line :
 #			print line
 			if line.startswith (' n o d a l   p r i n t   o u t   f o r   t i m e  s t e p'):
-				time = line [105:117].strip()
+				time = line [105:118].strip()
 #				print time
 				time_list.append (float(time))
 				line = file.readline()

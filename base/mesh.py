@@ -25,7 +25,7 @@ class Node:
 
 class Element:
 	def __init__ (self):
-		
+		self.type = ''		# тип элемента: tria3,quad4,tetra4,tetra10,hexa8,hexa20
 		self.values = []
 		
 		
